@@ -73,8 +73,13 @@ class CaixaDaLanchonete {
       total += acrecimo
     }
 
-    const totalFormatado = total.toFixed(2).replace('.',',')
-    return `R$ ${totalFormatado}`
+    const moedaReal = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    })
+
+    const totalFormatado = moedaReal.format(total)
+    return totalFormatado
   }
 }
 
