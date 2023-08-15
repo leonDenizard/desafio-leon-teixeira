@@ -73,17 +73,20 @@ class CaixaDaLanchonete {
       total += acrecimo
     }
 
-    const moedaReal = new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    })
+    // const moedaReal = new Intl.NumberFormat('pt-BR', {
+    //   style: 'currency',
+    //   currency: 'BRL',
+    // })
 
-    const totalFormatado = moedaReal.format(total)
-    return totalFormatado
+    // const totalFormatado = moedaReal.format(total)
+    // return totalFormatado
+
+    const totalFormatado = total.toFixed(2).replace('.',',');
+    return `R$ ${totalFormatado}`;
   }
 }
 
 const caixa = new CaixaDaLanchonete()
 
-console.log(caixa.calcularValorDaCompra('credito', ['combo1, 2', 'combo2, 1', 'salgado,1', 'suco, 4']))
+console.log(caixa.calcularValorDaCompra('debito', ['cafe,1','chantily,1']))
 export { CaixaDaLanchonete }
